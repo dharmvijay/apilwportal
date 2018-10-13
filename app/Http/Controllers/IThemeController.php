@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-class ExampleController extends Controller
+class IThemeController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -16,8 +16,17 @@ class ExampleController extends Controller
 
     public function syncUser()
     {
+        $jsonResposnse = '{
+            "status": "success",
+            "message": "Sync account created.",
+            "data": {
+                "apikey": "6d602e935b57bdcfb27986e47eaaf628",
+                "external_id": "1000000056",
+                "user_id": "119437"
+            }
+        }';
 
-        $faker = \Faker\Factory::create();
+        echo $jsonResposnse;
 
     }
 
