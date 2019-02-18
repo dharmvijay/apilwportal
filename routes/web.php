@@ -17,4 +17,5 @@ $router->get('/', function () use ($router) {
 
 
 $router->get('api/users', 'IThemeController@syncUser');
+$router->get('api/test', 'TestController@index');
 

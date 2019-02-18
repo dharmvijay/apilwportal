@@ -2,11 +2,10 @@
 
 namespace App\Http\Response;
 
-use http\Exception\BadMethodCallException;
+use BadMethodCallException;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Cache;
 use Symfony\Component\HttpFoundation\Response as ResponseHTTP;
-use App\Http\Traits\CommonUses;
 use Request;
 
 /*
@@ -17,9 +16,6 @@ use Request;
 
 class APIResponse
 {
-
-    use CommonUses;
-
     /**
      * Default is (200).
      *
