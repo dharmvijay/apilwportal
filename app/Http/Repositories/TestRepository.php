@@ -24,4 +24,8 @@ class TestRepository extends BaseRepository
     {
         return Test::class;
     }
+    public function countTotal()
+    {
+        return Test::count();
+    }
 }

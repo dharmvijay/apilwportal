@@ -4,15 +4,12 @@ namespace App\Http\Controllers;
 
 use App\Http\Repositories\TestRepository;
 use App\Http\Response\APIResponse;
-use GuzzleHttp\Client;
 use Illuminate\Support\Facades\App;
 use Illuminate\Http\Request;
-use App\Http\Controllers\Controller;
 use App\Test;
-use Amranidev\Ajaxis\Ajaxis;
-use URL;
+use App\Helpers\LimitOffsetCriteria;
+use Prettus\Repository\Criteria\RequestCriteria;
 
-use App\Task;
 
 
 /**
@@ -36,10 +33,14 @@ class TestController extends Controller
      *
      * @return  \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
+        $testsCount = $this->testRepository->countTotal();
+        $this->testRepository->pushCriteria(new RequestCriteria($request));
+        $this->testRepository->pushCriteria(new LimitOffsetCriteria($request));
+
         $tests = $this->testRepository->all();
-        return $this->apiResponse->respondWithMessageAndPayload($tests,'Test retrived successfully.');
+        return $this->apiResponse->respondWithMessageAndPayload(['data'=>$tests,'total_count' => $testsCount],'Test retrived successfully.');
     }
 
     /**
