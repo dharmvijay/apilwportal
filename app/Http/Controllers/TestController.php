@@ -15,8 +15,6 @@ use Prettus\Repository\Criteria\RequestCriteria;
 /**
  * Class TestController.
  *
- * @author  The scaffold-interface created at 2019-02-16 07:27:41pm
- * @link  https://github.com/amranidev/scaffold-interface
  */
 class TestController extends Controller
 {
